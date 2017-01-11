@@ -6,6 +6,6 @@
 </head>
 
 <body>
-欢迎来到程序员联盟
+欢迎来到程序员联盟，走，去登录————》<a href="admin/login">登录</a>
 </body>
 </html>

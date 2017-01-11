@@ -6,8 +6,12 @@
 </head>
 
 <body>
-	<form action="admin/login" method="post">
-		<input type="text" name="username" /> <input type="text" name="password" /> <input type="submit" value="提交" />
-	</form>
+	<div>欢迎来到程序员联盟，来，登录。</div>
+	<br />
+	<div>
+		<form action="admin/login" method="post">
+			<input type="text" name="username" placeholder="用户名" /> <input type="text" name="password" placeholder="密码" /> <input type="submit" value="提交" />
+		</form>
+	</div>
 </body>
 </html>

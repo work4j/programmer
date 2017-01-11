@@ -184,7 +184,12 @@
             <artifactId>commons-codec</artifactId>
             <version>1.9</version>
         </dependency>
-
+        <!-- 分页插件pagehelper -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.0.0</version>
+        </dependency>
 
     </dependencies>
 </project>

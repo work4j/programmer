@@ -1,5 +1,6 @@
 package com.programer.service;
 
+import com.github.pagehelper.Page;
 import com.programer.pojo.User;
 
 public interface UserService {
@@ -17,4 +18,6 @@ public interface UserService {
      * 通过id得到一个user
      */
     public User getUserById(int userId);
+
+    public Page<User> find();
 }

@@ -5,9 +5,15 @@
 
 # 项目框架：SringMVC + Mybatis + Mysql（或者 Postgresql，jdbc配置处更换下驱动） + JSP + Maven
 
+# jdk版本：推荐 1.8
+
+# Tomcat版本：推荐 8.0
+
 # 分页插件：pageHelper（暂时还没加）
 
 # 权限安全框架：木有，暂时自己写过滤器或者根据业务在代码中加判断。
+
+# 说明：没有服务器，先自己本地建数据库。项目访问路径 localhost:8080/programer
 
 # 目前的目录结构：
   common: 公共类，目前放了一个工具类SystemHelper。里面有一些公用的方法，比如获取当前用户，获取session等。

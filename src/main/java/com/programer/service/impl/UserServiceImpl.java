@@ -1,5 +1,6 @@
 package com.programer.service.impl;
 
+import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import com.github.pagehelper.Page;
@@ -27,6 +28,11 @@ public class UserServiceImpl implements UserService {
      */
     public User login(String username, String password) {
         return userDao.getUserByUsernameAndPassword(username, password);
+    }
+    
+    @Override
+    public List<User> findAll(UserQuery query) {
+        return userDao.find(query);
     }
 
     @Override

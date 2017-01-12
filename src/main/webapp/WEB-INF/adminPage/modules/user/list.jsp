@@ -52,7 +52,9 @@
 							<!-- <th style="text-align: center; width: 40px">#</th> -->
 							<th style="text-align: center;">用户名</th>
 							<th style="text-align: center;">密码</th>
-							<th style="text-align: center; width: 800px">年龄</th>
+							<th style="text-align: center;">真实姓名</th>
+							<th style="text-align: center;">昵称</th>
+							<th style="text-align: center; width: 80px">年龄</th>
 							<th style="text-align: center; width: 80px">用户类型</th>
 							<th style="text-align: center; width: 140px">操作</th>
 						</tr>
@@ -68,6 +70,8 @@
 								<tr>
 									<td style="text-align: center;">${item.userName }</td>
 									<td style="text-align: center;">${item.password }</td>
+									<td style="text-align: center;">${item.realname }</td>
+									<td style="text-align: center;">${item.nickName }</td>
 									<td style="text-align: center;">${item.age }</td>
 									<td style="text-align: center;">${item.userType == 1?'管理员':'普通用户' }</td>
 									<td style="text-align: center;"><a class="layui-btn layui-btn-small layui-btn-normal" href="delete_${item.id }"> <i class="layui-icon">&#xe640;</i>

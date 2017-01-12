@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.programer.pojo.form.UserForm;
 import com.programer.pojo.query.UserQuery;
@@ -48,6 +49,14 @@ public class AdminUserController {
     public String delete(@PathVariable("id") String id) {
         userService.delete(id);
         return "redirect:showUserList";
+    }
+
+    @RequestMapping(value = "/checkUserName", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean checkUsername(String username) {
+        UserQuery query = new UserQuery();
+        query.setUserName(username);
+        return userService.findAll(query).size() > 0;
     }
 
 }

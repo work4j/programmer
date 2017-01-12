@@ -18,4 +18,6 @@ public interface UserDao {
     User getUserByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
     List<User> find(UserQuery query);
+
+    User getUser(UserQuery query);
 }

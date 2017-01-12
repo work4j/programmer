@@ -7,9 +7,12 @@
 		<result column="password" property="password" jdbcType="VARCHAR" />
 		<result column="age" property="age" jdbcType="INTEGER" />
 		<result column="user_type" property="userType" jdbcType="INTEGER" />
+		<result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+		<result column="realname" property="realname" jdbcType="VARCHAR" />
+		<result column="register_time" property="registerTime" jdbcType="DATE" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, user_name, password, age, user_type
+		id, user_name, password, age, user_type, register_time, nick_name, realname
 	</sql>
 	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
@@ -21,6 +24,30 @@
 		select
 		<include refid="Base_Column_List" />
 		from user_t
+        <where>
+            <if test="id != null and id != ''">
+                AND id = #{id}
+            </if>
+            <if test="userName != null and userName != ''">
+                AND user_name = #{userName}
+            </if>
+            <if test="password != null and password != ''">
+                AND password = #{password}
+            </if>
+            <if test="age != null and age != ''">
+                AND age = #{age}
+            </if>
+            <if test="userType != null and userType != ''">
+                AND user_type = #{userType}
+            </if>
+            <if test="nickName != null and nickName != ''">
+                AND nick_name = #{nickName}
+            </if>
+            <if test="realname != null and realname != ''">
+                AND realname = #{realname}
+            </if>
+        </where>
+        ORDER BY user_type, register_time DESC
 	</select>
 	<select id="getUserByUsernameAndPassword" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
@@ -33,8 +60,9 @@
 		where id = #{id}
 	</delete>
 	<insert id="add" parameterType="com.programer.pojo.form.UserForm">
-		insert into user_t (id, user_name, password, age, user_type)
-		values (#{id}, #{userName},#{password},#{age}, #{userType})
+		insert into user_t (id, user_name, password, age, user_type, register_time, nick_name, realname)
+		values (#{id}, #{userName},#{password},#{age}, #{userType},
+        #{registerTime},#{nickName}, #{realname})
 	</insert>
 	<update id="update" parameterType="com.programer.pojo.form.UserForm">
 		update user_t

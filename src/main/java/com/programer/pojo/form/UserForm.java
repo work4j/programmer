@@ -1,5 +1,6 @@
 package com.programer.pojo.form;
 
+import java.util.Date;
 import java.util.UUID;
 import lombok.Data;
 
@@ -10,4 +11,7 @@ public class UserForm {
     private String password;
     private Integer age;
     private Integer userType;
+    private String nickName;
+    private String realname;
+    private Date registerTime = new Date();
 }

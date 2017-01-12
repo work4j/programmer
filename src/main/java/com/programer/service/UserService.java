@@ -1,5 +1,6 @@
 package com.programer.service;
 
+import java.util.List;
 import com.github.pagehelper.Page;
 import com.programer.pojo.User;
 import com.programer.pojo.form.UserForm;
@@ -30,4 +31,6 @@ public interface UserService {
      * 分页查询User
      */
     public Page<User> findByPage(UserQuery query);
+
+    List<User> findAll(UserQuery query);
 }

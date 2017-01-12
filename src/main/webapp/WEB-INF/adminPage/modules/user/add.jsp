@@ -34,13 +34,25 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">用户名：<span style="color: red">*</span></label>
 						<div class="layui-input-block">
-							<input maxlength="55" type="text" name="userName" lay-verify="title" autocomplete="off" placeholder="请输入用户名" class="layui-input">
+							<input maxlength="55" type="text" name="userName" lay-verify="userName" autocomplete="off" placeholder="请输入用户名" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">密码：<span style="color: red">*</span></label>
 						<div class="layui-input-block">
 							<input maxlength="55" type="text" name="password" lay-verify="title" autocomplete="off" placeholder="请输入密码" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">真实姓名：<span style="color: red">*</span></label>
+						<div class="layui-input-block">
+							<input maxlength="55" type="text" name="realname" lay-verify="title" autocomplete="off" placeholder="请输入真实姓名" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">昵称：<span style="color: red">*</span></label>
+						<div class="layui-input-block">
+							<input maxlength="55" type="text" name="nickName" lay-verify="title" autocomplete="off" placeholder="请输入昵称" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
@@ -87,9 +99,31 @@
 	    var $ = layui.jquery;
 	     //自定义验证规则
 	     var rules = {
+             userName : function(value) {
+                 if (value.length < 2 || value.length > 45) {
+                     return '标题在2~45个字符之间';
+                 } else {
+                     var flag = true;
+                     $.ajax({
+                         url : 'checkUserName',
+                         type : 'post',
+                         data : {
+                             username : value
+                         },
+                         dataType: 'json',
+                         async : false,
+                         success : function(data){
+                             flag = data;
+                         }
+                     });
+                     if(flag){
+                         return '用户名已存在';
+                     }
+                 }
+             },
 	         title : function(value) {
-	             if (value.length < 5 || value.length > 45) {
-	                 return '标题在5~45个字符之间';
+	             if (value.length < 2 || value.length > 45) {
+	                 return '标题在2~45个字符之间';
 	             }
 	         },
 	         age : function(value) {

@@ -1,9 +1,9 @@
-package com.programer.pojo;
+package com.programer.pojo.query;
 
 import lombok.Data;
 
 @Data
-public class User {
+public class UserQuery {
     private String id;
     private String userName;
     private String password;

@@ -6,6 +6,8 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.programer.dao.UserDao;
 import com.programer.pojo.User;
+import com.programer.pojo.form.UserForm;
+import com.programer.pojo.query.UserQuery;
 import com.programer.service.UserService;
 
 @Service("userService")
@@ -16,31 +18,31 @@ public class UserServiceImpl implements UserService {
     /**
      * 新增一个user
      */
-    public void add(User user) {
-        this.userDao.add(user);
+    public void add(UserForm form) {
+        this.userDao.add(form);
     }
 
     /**
      * 通过username,password得到一个user
      */
     public User login(String username, String password) {
-        return this.userDao.getUserByUsernameAndPassword(username, password);
+        return userDao.getUserByUsernameAndPassword(username, password);
     }
 
     @Override
-    public Page<User> find() {
+    public Page<User> findByPage(UserQuery query) {
         PageHelper.startPage(1, 10);
-        return (Page<User>) this.userDao.find();
+        return (Page<User>) userDao.find(query);
     }
 
     @Override
     public User getUserById(String userId) {
-        return this.userDao.get(userId);
+        return userDao.get(userId);
     }
 
     @Override
     public int delete(String id) {
-        return this.userDao.delete(id);
+        return userDao.delete(id);
     }
 
 }

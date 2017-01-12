@@ -17,7 +17,7 @@
 		from user_t
 		where id = #{id}
 	</select>
-	<select id="find" resultMap="BaseResultMap">
+	<select id="find" resultMap="BaseResultMap" parameterType="com.programer.pojo.query.UserQuery">
 		select
 		<include refid="Base_Column_List" />
 		from user_t
@@ -32,11 +32,11 @@
 		delete from user_t
 		where id = #{id}
 	</delete>
-	<insert id="add" parameterType="com.programer.pojo.User">
+	<insert id="add" parameterType="com.programer.pojo.form.UserForm">
 		insert into user_t (id, user_name, password, age, user_type)
 		values (#{id}, #{userName},#{password},#{age}, #{userType})
 	</insert>
-	<update id="update" parameterType="com.programer.pojo.User">
+	<update id="update" parameterType="com.programer.pojo.form.UserForm">
 		update user_t
 		<set>
 			<if test="userName != null">

@@ -2,13 +2,12 @@ package com.programer.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import com.github.pagehelper.Page;
 import com.programer.pojo.User;
 
 public interface UserDao {
-    int delete(Integer id);
+    int delete(String id);
 
-    User get(Integer id);
+    User get(String id);
 
     int update(User user);
 

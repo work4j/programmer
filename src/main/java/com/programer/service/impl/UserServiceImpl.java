@@ -13,10 +13,6 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserDao userDao;
 
-    public User getUserById(int userId) {
-        return this.userDao.get(userId);
-    }
-
     /**
      * 新增一个user
      */
@@ -35,6 +31,16 @@ public class UserServiceImpl implements UserService {
     public Page<User> find() {
         PageHelper.startPage(1, 10);
         return (Page<User>) this.userDao.find();
+    }
+
+    @Override
+    public User getUserById(String userId) {
+        return this.userDao.get(userId);
+    }
+
+    @Override
+    public int delete(String id) {
+        return this.userDao.delete(id);
     }
 
 }

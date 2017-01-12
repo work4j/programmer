@@ -35,7 +35,7 @@ public final class SystemHelper {
 
     public static HttpServletRequest getRequest() {
         HttpServletRequest request = null;
-        if (RequestContextHolder.getRequestAttributes() != null) {
+        if ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes() != null) {
             request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         }
         return request;

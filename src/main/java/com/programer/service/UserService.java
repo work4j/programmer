@@ -17,7 +17,12 @@ public interface UserService {
     /**
      * 通过id得到一个user
      */
-    public User getUserById(int userId);
+    public User getUserById(String userId);
+    
+    /**
+     * 通过id删除一个user
+     */
+    public int delete(String userId);
 
     public Page<User> find();
 }

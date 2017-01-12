@@ -5,14 +5,14 @@
 		<id column="id" property="id" jdbcType="VARCHAR" />
 		<result column="user_name" property="userName" jdbcType="VARCHAR" />
 		<result column="password" property="password" jdbcType="VARCHAR" />
-		<result column="age" property="age" jdbcType="INTEGER" />
-		<result column="user_type" property="userType" jdbcType="INTEGER" />
-		<result column="nick_name" property="nickName" jdbcType="VARCHAR" />
-		<result column="realname" property="realname" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="nickname" property="nickname" jdbcType="VARCHAR" />
+		<result column="editable" property="editable" jdbcType="INTEGER" />
+		<result column="real_name" property="realName" jdbcType="VARCHAR" />
 		<result column="register_time" property="registerTime" jdbcType="DATE" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, user_name, password, age, user_type, register_time, nick_name, realname
+		id, user_name, password, email, user_type, register_time, nickname, real_name, editable
 	</sql>
 	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
@@ -34,17 +34,17 @@
             <if test="password != null and password != ''">
                 AND password = #{password}
             </if>
-            <if test="age != null and age != ''">
-                AND age = #{age}
+            <if test="email != null and email != ''">
+                AND email = #{email}
             </if>
             <if test="userType != null and userType != ''">
                 AND user_type = #{userType}
             </if>
-            <if test="nickName != null and nickName != ''">
-                AND nick_name = #{nickName}
+            <if test="nickname != null and nickname != ''">
+                AND nickname = #{nickname}
             </if>
-            <if test="realname != null and realname != ''">
-                AND realname = #{realname}
+            <if test="realName != null and realName != ''">
+                AND real_name = #{realName}
             </if>
         </where>
         ORDER BY user_type, register_time DESC
@@ -60,9 +60,9 @@
 		where id = #{id}
 	</delete>
 	<insert id="add" parameterType="com.programer.pojo.form.UserForm">
-		insert into user_t (id, user_name, password, age, user_type, register_time, nick_name, realname)
-		values (#{id}, #{userName},#{password},#{age}, #{userType},
-        #{registerTime},#{nickName}, #{realname})
+		insert into user_t (id, user_name, password, email, user_type, register_time, nickname, real_name, editable)
+		values (#{id}, #{userName},#{password},#{email}, #{userType},
+        #{registerTime},#{nickname}, #{realName}, #{editable})
 	</insert>
 	<update id="update" parameterType="com.programer.pojo.form.UserForm">
 		update user_t
@@ -73,8 +73,8 @@
 			<if test="password != null">
 				password = #{password},
 			</if>
-			<if test="age != null">
-				age = #{age},
+			<if test="email != null">
+				email = #{email},
 			</if>
 		</set>
 		where id = #{id}

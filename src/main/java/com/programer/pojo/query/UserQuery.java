@@ -8,9 +8,10 @@ public class UserQuery {
     private String id;
     private String userName;
     private String password;
-    private Integer age;
+    private String email;
     private Integer userType;
-    private String nickName;
-    private String realname;
+    private String nickname;
+    private String realName;
     private Date registerTime;
+    private Integer editable;
 }

@@ -9,9 +9,10 @@ public class UserForm {
     private String id = UUID.randomUUID().toString().replaceAll("-", "");
     private String userName;
     private String password;
-    private Integer age;
+    private String email;
     private Integer userType;
-    private String nickName;
-    private String realname;
+    private String nickname;
+    private String realName;
     private Date registerTime = new Date();
+    private Integer editable = 1;
 }

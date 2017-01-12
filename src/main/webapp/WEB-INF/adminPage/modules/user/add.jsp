@@ -46,19 +46,19 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">真实姓名：<span style="color: red">*</span></label>
 						<div class="layui-input-block">
-							<input maxlength="55" type="text" name="realname" lay-verify="title" autocomplete="off" placeholder="请输入真实姓名" class="layui-input">
+							<input maxlength="55" type="text" name="realName" lay-verify="title" autocomplete="off" placeholder="请输入真实姓名" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">昵称：<span style="color: red">*</span></label>
 						<div class="layui-input-block">
-							<input maxlength="55" type="text" name="nickName" lay-verify="title" autocomplete="off" placeholder="请输入昵称" class="layui-input">
+							<input maxlength="55" type="text" name="nickname" lay-verify="title" autocomplete="off" placeholder="请输入昵称" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">年龄：<span style="color: red">*</span></label>
+						<label class="layui-form-label">邮箱：<span style="color: red">*</span></label>
 						<div class="layui-input-block">
-							<input type="number" name="age" value="1" min="1" max="999999" lay-verify="num" placeholder="请输入年龄" class="layui-input" autocomplete="off">
+							<input maxlength="55" type="text" name="email" lay-verify="title" autocomplete="off" placeholder="请输入邮箱" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">

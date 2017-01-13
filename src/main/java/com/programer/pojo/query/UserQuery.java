@@ -14,4 +14,7 @@ public class UserQuery {
     private String realName;
     private Date registerTime;
     private Integer editable;
+    private Integer pageNum = 1;
+    private Integer limit = 10;
+    private String simpleQueryParam;
 }

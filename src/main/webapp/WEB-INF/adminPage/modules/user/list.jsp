@@ -75,7 +75,7 @@
 									<td style="text-align: center;">${item.nickname }</td>
 									<td style="text-align: center;">${item.email }</td>
 									<td style="text-align: center;">${item.userType == 1?'管理员':'普通用户' }</td>
-									<td style="text-align: center;"><a class="layui-btn layui-btn-small layui-btn-normal" href="delete_${item.id }"> <i class="layui-icon">&#xe640;</i>
+									<td style="text-align: center;"><a class="layui-btn layui-btn-small layui-btn-normal ${item.editable!=1?'layui-btn-disabled':''}" href="${item.editable!=1?'javascript:void(0);':'delete_'}${item.editable!=1?'':item.id}"> <i class="layui-icon">&#xe640;</i>
 									</a></td>
 								</tr>
 							</c:forEach>
@@ -111,7 +111,18 @@
 	</div>
 	<!-- 当前页js代码 -->
 	<script type="text/javascript">
-        
+    $(function(){
+        $("#simpleQueryParam").val(GetQueryString("simpleQueryParam"));
+        var option = {
+            listUrl : "showUserList?",
+            totalPages : ${result.getPages()},
+            page : ${result.getPageNum()},
+            param : {
+                simpleQueryParam
+            }
+        };
+        tg_basePage(option);
+    })
     </script>
 </body>
 </html>

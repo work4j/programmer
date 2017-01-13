@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.programer.dao.ArticleDao">
+	<resultMap id="BaseResultMap" type="com.programer.pojo.Article">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="nickname" property="nickname" jdbcType="VARCHAR" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+		<result column="user_id" property="userId" jdbcType="VARCHAR" />
+		<result column="release_time" property="releaseTime" jdbcType="DATE" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, title, content, user_id, release_time
+	</sql>
+	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		art.*,u.nickname
+        from article_t art
+        LEFT JOIN user_t u ON u.id = art.user_id
+		where art.id = #{id}
+	</select>
+	<select id="find" resultMap="BaseResultMap" parameterType="com.programer.pojo.query.ArticleQuery">
+		select
+		art.*,u.nickname
+		from article_t art
+        LEFT JOIN user_t u ON u.id = art.user_id
+        <where>
+            <if test="id != null and id != ''">
+                AND art.id = #{id}
+            </if>
+            <if test="title != null and title != ''">
+                AND art.title = #{title}
+            </if>
+            <if test="content != null and content != ''">
+                AND art.content = #{content}
+            </if>
+            <if test="simpleQueryParam != null and simpleQueryParam != ''">
+                AND art.title LIKE CONCAT('%',#{simpleQueryParam},'%')
+            </if>
+        </where>
+        ORDER BY release_time DESC
+	</select>
+	<delete id="delete" parameterType="java.lang.String">
+		delete from article_t
+		where id = #{id}
+	</delete>
+	<insert id="add" parameterType="com.programer.pojo.form.ArticleForm">
+		insert into article_t (id, title, content, user_id, release_time)
+		values (#{id}, #{title},#{content},#{userId}, #{releaseTime})
+	</insert>
+	<update id="update" parameterType="com.programer.pojo.form.ArticleForm">
+		update article_t
+		<set>
+			<if test="title != null and title != ''">
+				title = #{title},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+</mapper>

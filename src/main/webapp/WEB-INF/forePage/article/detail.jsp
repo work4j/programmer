@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>程序员社区</title>
@@ -27,155 +27,46 @@
 						<span style="color: #FF7200">悬赏：5飞吻</span> <span class="layui-btn layui-btn-mini jie-admin " type="collect" data-type="add">收藏</span>
 					</div>
 				</div>
-				<div class="detail-body photos" style="margin-bottom: 20px;">${result.content }
-				</div>
+				<div class="detail-body photos" style="margin-bottom: 20px;">${result.content }</div>
 				<a name="comment"></a>
 				<h2 class="page-title">
 					热忱回答<span>（<em id="jiedaCount">23</em>）
 					</span>
 				</h2>
 				<ul class="jieda photos" id="jieda">
-					<li data-id="23590"><a name="item-1484117219058"></a>
-						<div class="detail-about detail-about-reply">
-							<a class="jie-user" href="http://fly.layui.com/u/207816/"> <img src="/programer/resources/others/layui/images/user03.jpg" alt="kunhour" layer-index="1"> <cite> <i>kunhour</i> <em style="padding: 0; color: #FF7200;">VIP2</em>
-							</cite>
-							</a>
-							<div class="detail-hits">
-								<span>2天前</span>
+					<c:forEach var="item" items="${replys }">
+						<li>
+							<div class="detail-about detail-about-reply">
+								<a class="jie-user" href="javascript:void(0)"> <img src="/programer/resources/others/layui/images/user03.jpg" alt="${item.nickname }" layer-index="1"> <cite> <i>${item.nickname }</i> <em style="padding: 0; color: #FF7200;">VIP2</em>
+								</cite>
+								</a>
+								<div class="detail-hits">
+									<span>${item.replyTime }</span>
+								</div>
 							</div>
-						</div>
-						<div class="detail-body jieda-body">就因为之前投票得奖了？？？</div>
-						<div class="jieda-reply">
-							<span class="jieda-zan " type="zan"> <i class="iconfont icon-zan"></i> <em>1</em>
-							</span> <span type="reply"> <i class="iconfont icon-svgmoban53"></i> 回复
-							</span>
-						</div></li>
-					<li data-id="23593"><a name="item-1484117312806"></a>
-						<div class="detail-about detail-about-reply">
-							<a class="jie-user" href="http://fly.layui.com/u/3298008/"> <img src="/programer/resources/others/layui/images/user03.jpg" alt="听海" layer-index="2"> <cite> <i>听海</i>
-							</cite>
-							</a>
-							<div class="detail-hits">
-								<span>2天前</span>
+							<div class="detail-body jieda-body">${item.content }</div>
+							<div class="jieda-reply">
+								<span class="jieda-zan " type="zan"> <i class="iconfont icon-zan"></i> <em>1</em>
+								</span> <span type="reply"> <i class="iconfont icon-svgmoban53"></i> 回复
+								</span>
 							</div>
-						</div>
-						<div class="detail-body jieda-body">
-							@<a href="javascript:;" class="fly-aite">贤心</a> 如果有离线文档就好了...
-						</div>
-						<div class="jieda-reply">
-							<span class="jieda-zan " type="zan"> <i class="iconfont icon-zan"></i> <em>1</em>
-							</span> <span type="reply"> <i class="iconfont icon-svgmoban53"></i> 回复
-							</span>
-						</div></li>
-					<li data-id="23602"><a name="item-1484118965479"></a>
-						<div class="detail-about detail-about-reply">
-							<a class="jie-user" href="http://fly.layui.com/u/998088/"> <img src="/programer/resources/others/layui/images/user03.jpg" alt="黄焯华" layer-index="3"> <cite> <i>黄焯华</i>
-							</cite>
-							</a>
-							<div class="detail-hits">
-								<span>2天前</span>
-							</div>
-						</div>
-						<div class="detail-body jieda-body">
-							@<a href="javascript:;" class="fly-aite">i小喵</a> @<a href="javascript:;" class="fly-aite">听海</a> 我也希望能够出一个离线的文档，另外加快的自适应框架、移动端的框架的布局
-						</div>
-						<div class="jieda-reply">
-							<span class="jieda-zan " type="zan"> <i class="iconfont icon-zan"></i> <em>1</em>
-							</span> <span type="reply"> <i class="iconfont icon-svgmoban53"></i> 回复
-							</span>
-						</div></li>
-					<li data-id="23585"><a name="item-1484116712046"></a>
-						<div class="detail-about detail-about-reply">
-							<a class="jie-user" href="http://fly.layui.com/u/3298008/"> <img src="/programer/resources/others/layui/images/user03.jpg" alt="听海" layer-index="4"> <cite> <i>听海</i>
-							</cite>
-							</a>
-							<div class="detail-hits">
-								<span>2天前</span>
-							</div>
-						</div>
-						<div class="detail-body jieda-body">殃及LayUI.com...</div>
-						<div class="jieda-reply">
-							<span class="jieda-zan " type="zan"> <i class="iconfont icon-zan"></i> <em>0</em>
-							</span> <span type="reply"> <i class="iconfont icon-svgmoban53"></i> 回复
-							</span>
-						</div></li>
-					<li data-id="23624"><a name="item-1484132247728"></a>
-						<div class="detail-about detail-about-reply">
-							<a class="jie-user" href="http://fly.layui.com/u/2570904/"> <img src="/programer/resources/others/layui/images/user03.jpg" alt="龙云" layer-index="17"> <cite> <i>龙云</i>
-							</cite>
-							</a>
-							<div class="detail-hits">
-								<span>1天前</span>
-							</div>
-						</div>
-						<div class="detail-body jieda-body">
-							我说怎么刚刚无法访问了<img alt="[思考]" title="[思考]" src="./近期服务器遭受不明来源的持续攻击 - Fly社区_files/sk_thumb.gif" layer-index="18">
-						</div>
-						<div class="jieda-reply">
-							<span class="jieda-zan " type="zan"> <i class="iconfont icon-zan"></i> <em>0</em>
-							</span> <span type="reply"> <i class="iconfont icon-svgmoban53"></i> 回复
-							</span>
-						</div></li>
-					<li data-id="23627"><a name="item-1484135193009"></a>
-						<div class="detail-about detail-about-reply">
-							<a class="jie-user" href="http://fly.layui.com/u/631680/"> <img src="/programer/resources/others/layui/images/user03.jpg" alt="黑曼曼" layer-index="19"> <cite> <i>黑曼曼</i>
-							</cite>
-							</a>
-							<div class="detail-hits">
-								<span>1天前</span>
-							</div>
-						</div>
-						<div class="detail-body jieda-body">看不到ip地址吗？把ip拉入黑名单</div>
-						<div class="jieda-reply">
-							<span class="jieda-zan " type="zan"> <i class="iconfont icon-zan"></i> <em>0</em>
-							</span> <span type="reply"> <i class="iconfont icon-svgmoban53"></i> 回复
-							</span>
-						</div></li>
-					<li data-id="23639"><a name="item-1484143877721"></a>
-						<div class="detail-about detail-about-reply">
-							<a class="jie-user" href="http://fly.layui.com/u/545160/"> <img src="/programer/resources/others/layui/images/user03.jpg" alt="myEsn2E9" layer-index="20"> <cite> <i>myEsn2E9</i>
-							</cite>
-							</a>
-							<div class="detail-hits">
-								<span>1天前</span>
-							</div>
-						</div>
-						<div class="detail-body jieda-body">阿里云不是可以购买防CC和DDOS之类攻击的服务吗</div>
-						<div class="jieda-reply">
-							<span class="jieda-zan " type="zan"> <i class="iconfont icon-zan"></i> <em>0</em>
-							</span> <span type="reply"> <i class="iconfont icon-svgmoban53"></i> 回复
-							</span>
-						</div></li>
-					<li data-id="23687"><a name="item-1484192199257"></a>
-						<div class="detail-about detail-about-reply">
-							<a class="jie-user" href="http://fly.layui.com/u/3208128/"> <img src="/programer/resources/others/layui/images/user03.jpg" alt="清新小萝卜" layer-index="21"> <cite> <i>清新小萝卜</i>
-							</cite>
-							</a>
-							<div class="detail-hits">
-								<span>1天前</span>
-							</div>
-						</div>
-						<div class="detail-body jieda-body">访问正常，弄个离线的文档，经常需要查</div>
-						<div class="jieda-reply">
-							<span class="jieda-zan " type="zan"> <i class="iconfont icon-zan"></i> <em>0</em>
-							</span> <span type="reply"> <i class="iconfont icon-svgmoban53"></i> 回复
-							</span>
-						</div></li>
+						</li>
+					</c:forEach>
 				</ul>
 				<div class="layui-form layui-form-pane">
-					<form action="http://fly.layui.com/jie/reply/" method="post">
+					<form action="addReply" method="post" class="layui-form">
 						<div class="layui-form-item layui-form-text">
 							<div class="layui-input-block">
 								<div class="fly-edit">
 									<span type="face" title="插入表情"><i class="iconfont icon-biaoqing"></i>表情</span><span type="picture" title="插入图片：img[src]"><i class="iconfont icon-tupian"></i>图片</span><span type="href" title="超链接格式：a(href)[text]"><i class="iconfont icon-lianjie"></i>链接</span><span type="code" title="插入代码"><i
 										class="iconfont icon-daima"></i>代码</span><span type="yulan" title="预览"><i class="iconfont icon-yulan"></i>预览</span>
 								</div>
-								<textarea id="L_content" name="content" required="" lay-verify="required" placeholder="我要回答" class="layui-textarea fly-editor" style="height: 150px;"></textarea>
+								<textarea name="content" required="" lay-verify="content" placeholder="我要评论" class="layui-textarea fly-editor" style="height: 150px;"></textarea>
 							</div>
 						</div>
 						<div class="layui-form-item">
-							<input type="hidden" name="jid" value="6711">
-							<button class="layui-btn" lay-filter="*" lay-submit="">提交回答</button>
+							<input type="hidden" name="articleId" value="${result.id }">
+							<button class="layui-btn" lay-filter="submit1" lay-submit="">提交评论</button>
 						</div>
 					</form>
 				</div>
@@ -215,8 +106,37 @@
 	<!-- 公共js -->
 	<jsp:include page="../common/import_js_fore.jsp"></jsp:include>
 	<!-- 当前页面js -->
-	<script>
-        
+	<script type="text/javascript">
+        var form = layui.form();
+        var $ = layui.jquery;
+         //自定义验证规则
+         var rules = {
+             content : function(value) {
+                 if (value.length < 1 || value.length > 2000) {
+                     return '评论在1~2000个字符之间';
+                 }
+             }
+         };
+         form.verify(rules);
+         //监听提交
+          form.on('submit(submit1)', function(data) {
+              console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+              console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+              console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+              $.post(data.form.action, data.field, function(d){
+                  if(d.status==1){
+                      var str = '<li><div class="detail-about detail-about-reply">';
+                      str += '<a class="jie-user" href="javascript:void(0)"> <img src="/programer/resources/others/layui/images/user03.jpg" alt="kunhour" layer-index="1"> <cite> <i>kunhour</i></cite></a>';
+                      str += '<div class="detail-hits"><span>刚刚</span> </div></div>';
+                      str += '<div class="detail-body jieda-body">'+data.field.content+'</div><div class="jieda-reply"><span class="jieda-zan " type="zan"> <i class="iconfont icon-zan"></i> <em>1</em>';
+                      str += '</span> <span type="reply"> <i class="iconfont icon-svgmoban53"></i> 回复</span></div></li>';
+                      $('#jieda').append(str);
+                  }else{
+                      layer.msg(d.msg);
+                  }
+              },'json');
+              return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+         });
     </script>
 	<ul class="fly-rbar">
 		<li id="F_topbar" class="iconfont icon-top" method="top"></li>

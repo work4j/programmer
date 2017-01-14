@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.programer.dao.ReplyDao">
+	<resultMap id="BaseResultMap" type="com.programer.pojo.Reply">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="nickname" property="nickname" jdbcType="VARCHAR" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+		<result column="user_id" property="userId" jdbcType="VARCHAR" />
+		<result column="article_id" property="articleId" jdbcType="VARCHAR" />
+		<result column="reply_time" property="replyTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, article_id, content, user_id, reply_time
+	</sql>
+	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		pre.*,u.nickname
+        from reply_t pre
+        LEFT JOIN user_t u ON u.id = pre.user_id
+		where pre.id = #{id}
+	</select>
+	<select id="find" resultMap="BaseResultMap" parameterType="com.programer.pojo.query.ReplyQuery">
+		select
+		pre.*,u.nickname
+		from reply_t pre
+        LEFT JOIN user_t u ON u.id = pre.user_id
+        <where>
+            <if test="id != null and id != ''">
+                AND pre.id = #{id}
+            </if>
+            <if test="articleId != null and articleId != ''">
+                AND pre.article_id = #{articleId}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND pre.user_id = #{userId}
+            </if>
+            <if test="simpleQueryParam != null and simpleQueryParam != ''">
+                AND pre.content LIKE CONCAT('%',#{simpleQueryParam},'%')
+            </if>
+        </where>
+        ORDER BY reply_time DESC
+	</select>
+	<delete id="delete" parameterType="java.lang.String">
+		delete from reply_t
+		where id = #{id}
+	</delete>
+	<insert id="add" parameterType="com.programer.pojo.form.ReplyForm">
+		insert into reply_t (id, article_id, content, user_id, reply_time)
+		values (#{id}, #{articleId},#{content},#{userId}, #{replyTime})
+	</insert>
+	<update id="update" parameterType="com.programer.pojo.form.ReplyForm">
+		update reply_t
+		<set>
+			<if test="articleId != null and articleId != ''">
+				article_id = #{articleId},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+</mapper>

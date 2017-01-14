@@ -26,8 +26,7 @@
 					<i class="layui-icon">&#xe60b;</i> 啦啦啦，新增用户。
 				</blockquote>
 				<!--/*******操作*******/-->
-				<form th:action="@{/manage/m/task/add.htm}" id="editForm" role="form" method="post" class="layui-form">
-					<input name="avoidRepeatSubmitToken" th:value="${session.avoidRepeatSubmitToken}" type="text" hidden="true"> <input name="type" value="3" hidden="true" />
+				<form action="add" method="post" class="layui-form">
 					<fieldset class="layui-elem-field layui-field-title">
 						<legend>用户管理——新增用户</legend>
 					</fieldset>

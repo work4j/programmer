@@ -10,7 +10,7 @@ public class ReplyQuery {
     private String userId;
     private String articleId;
     private Date replyTime;
-    private Integer pageNum = 1;
+    private Integer page = 1;
     private Integer limit = 20;
     private String simpleQueryParam;
 }

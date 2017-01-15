@@ -1,17 +1,17 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>程序员社区后台</title>
 <!-- 头部 -->
-<%@ include file="../../common/head_admin.jsp"%>
+<%@ include file="/WEB-INF/adminPage/common/head_admin.jsp"%>
 </head>
 <body>
 	<div class="layui-layout layui-layout-admin">
 		<!-- 导航栏 -->
-		<jsp:include page="../../common/nav_admin.jsp" />
+		<jsp:include page="/WEB-INF/adminPage/common/nav_admin.jsp" />
 		<!-- 菜单栏  param::root 菜单栏选项卡定位参数 -->
-		<jsp:include page="../../common/menu_admin.jsp" flush="true">
+		<jsp:include page="/WEB-INF/adminPage/common/menu_admin.jsp" flush="true">
 			<jsp:param value="user" name="root" />
 		</jsp:include>
 		<!-- 内容 -->
@@ -62,7 +62,7 @@
 					<tbody>
 						<c:if test="${result == null || result.size() == 0}">
 							<tr>
-								<td colspan="6" style="text-align: center;">暂时没有数据</td>
+								<td colspan="8" style="text-align: center;">暂时没有数据</td>
 							</tr>
 						</c:if>
 						<c:if test="${result != null && result.size() != 0}">
@@ -105,13 +105,12 @@
 			</div>
 		</div>
 		<!-- 底部 -->
-		<jsp:include page="../../common/footer_admin.jsp" />
+		<jsp:include page="/WEB-INF/adminPage/common/footer_admin.jsp" />
 		<!-- 公告js文件 -->
-		<jsp:include page="../../common/import_js_admin.jsp" />
+		<jsp:include page="/WEB-INF/adminPage/common/import_js_admin.jsp" />
 	</div>
 	<!-- 当前页js代码 -->
 	<script type="text/javascript">
-    $(function(){
         $("#simpleQueryParam").val(GetQueryString("simpleQueryParam"));
         var option = {
             listUrl : "showUserList?",
@@ -122,7 +121,6 @@
             }
         };
         tg_basePage(option);
-    })
     </script>
 </body>
 </html>

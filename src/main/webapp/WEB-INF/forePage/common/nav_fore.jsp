@@ -7,11 +7,11 @@
 %>
 <div class="header">
 	<div class="main">
-		<a class="logo" style="background: url(/programer/resources/others/layui/images/logo-1.png) no-repeat" href="http://fly.layui.com/" title="Fly">Fly社区</a>
+		<a class="logo" style="background: url(<%=basePath %>resources/others/layui/images/logo-1.png) no-repeat" href="http://fly.layui.com/" title="Fly">Fly社区</a>
 		<div class="nav">
-			<a href="/programer/fore/article/articleList"> <i class="iconfont icon-wenda"></i>问答
-			</a> <a href="/programer/fore/article/articleList"> <i class="iconfont icon-iconmingxinganli" style="top: 2px;"></i>案例
-			</a> <a href="/programer/fore/article/articleList"> <i class="iconfont icon-ui"></i>框架
+			<a href="<%=basePath %>fore/article/articleList"> <i class="iconfont icon-wenda"></i>问答
+			</a> <a href="<%=basePath %>fore/article/articleList"> <i class="iconfont icon-iconmingxinganli" style="top: 2px;"></i>案例
+			</a> <a href="<%=basePath %>fore/article/articleList"> <i class="iconfont icon-ui"></i>框架
 			</a>
 		</div>
 		<c:if test="${sessionScope.currentUser != null }">
@@ -19,7 +19,7 @@
 				<a class="avatar" href="/user/"> <img src="http://q.qlogo.cn/qqapp/101235792/3F2CF40CCA8313F4CC8C4A7044B2ADB4/100"> <cite>万</cite>
 				</a>
 				<div class="nav">
-					<a href="/user/set/"><i class="iconfont icon-shezhi"></i>设置</a> <a href="/programer/fore/logout"><i class="iconfont icon-tuichu" style="top: 0; font-size: 22px;"></i>退了</a>
+					<a href="/user/set/"><i class="iconfont icon-shezhi"></i>设置</a> <a href="<%=basePath%>fore/logout"><i class="iconfont icon-tuichu" style="top: 0; font-size: 22px;"></i>退了</a>
 				</div>
 			</div>
 		</c:if>

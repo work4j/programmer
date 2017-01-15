@@ -34,6 +34,9 @@
 					</span>
 				</h2>
 				<ul class="jieda photos" id="jieda">
+					<c:if test="${replys.size() == 0 }">
+						<li class="fly-none">没有任何评论</li>
+					</c:if>
 					<c:forEach var="item" items="${replys }">
 						<li>
 							<div class="detail-about detail-about-reply">
@@ -53,6 +56,9 @@
 						</li>
 					</c:forEach>
 				</ul>
+				<div>
+					<div id="pageDiv"></div>
+				</div>
 				<div class="layui-form layui-form-pane">
 					<form action="addReply" method="post" class="layui-form">
 						<div class="layui-form-item layui-form-text">
@@ -107,8 +113,16 @@
 	<jsp:include page="../common/import_js_fore.jsp"></jsp:include>
 	<!-- 当前页面js -->
 	<script type="text/javascript">
-        var form = layui.form();
-        var $ = layui.jquery;
+	var arr = window.location.href.split('?');
+	var ar = arr[0];
+    var option = {
+        listUrl : ar+'?',
+        totalPages : ${replys.getPages()},
+        page : ${replys.getPageNum()},
+        param : {
+        }
+    };
+    tg_basePage(option);        
          //自定义验证规则
          var rules = {
              content : function(value) {

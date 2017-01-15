@@ -15,12 +15,15 @@
 				<div class="fly-tab">
 					<span> <a href="http://fly.layui.com/jie/">全部</a> <a href="http://fly.layui.com/jie/unsolved/">未结帖</a> <a href="http://fly.layui.com/jie/solved/">已采纳</a> <a href="http://fly.layui.com/jie/wonderful/">精帖</a>
 					</span>
-					<form action="http://cn.bing.com/search" class="fly-search">
-						<i class="iconfont icon-sousuo"></i> <input class="layui-input" autocomplete="off" placeholder="搜索内容，回车跳转" type="text" name="q">
+					<form class="fly-search">
+						<i class="iconfont icon-sousuo"></i> <input class="layui-input" autocomplete="off" placeholder="搜索内容，回车跳转" type="text" id="simpleQueryParam" name="simpleQueryParam">
 					</form>
-					<a href="/programer/fore/article/add" class="layui-btn jie-add">发布问题</a>
+					<a href="add" class="layui-btn jie-add">发布问题</a>
 				</div>
 				<ul class="fly-list">
+					<c:if test="${result.size() == 0 }">
+						<li class="fly-none">没有任何文章</li>
+					</c:if>
 					<c:forEach var="item" items="${result }" varStatus="items">
 						<li class="fly-list-li"><a href="javascript:void(0)" class="fly-list-avatar"> <img src="/programer/resources/others/layui/images/user03.jpg" alt="贤心">
 						</a>
@@ -34,9 +37,7 @@
 					</c:forEach>
 				</ul>
 				<div style="text-align: center">
-					<div class="laypage-main">
-						<a href="javascript:void(0)" class="laypage-next">更多求解</a>
-					</div>
+					<div id="pageDiv"></div>
 				</div>
 			</div>
 		</div>
@@ -106,7 +107,16 @@
 	<jsp:include page="../common/import_js_fore.jsp"></jsp:include>
 	<!-- 当前页面js -->
 	<script>
-        
+    $("#simpleQueryParam").val(GetQueryString("simpleQueryParam"));
+    var option = {
+        listUrl : "articleList?",
+        totalPages : ${result.getPages()},
+        page : ${result.getPageNum()},
+        param : {
+            simpleQueryParam
+        }
+    };
+    tg_basePage(option);
     </script>
 	<ul class="fly-rbar">
 		<li id="F_topbar" class="iconfont icon-top" method="top"></li>

@@ -30,7 +30,7 @@ public class ReplyServiceImpl implements ReplyService {
 
     @Override
     public Page<Reply> findByPage(ReplyQuery query) {
-        PageHelper.startPage(query.getPageNum(), query.getLimit());
+        PageHelper.startPage(query.getPage(), query.getLimit());
         return (Page<Reply>) replyDao.find(query);
     }
 

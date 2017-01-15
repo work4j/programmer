@@ -30,7 +30,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Page<Article> findByPage(ArticleQuery query) {
-        PageHelper.startPage(query.getPageNum(), query.getLimit());
+        PageHelper.startPage(query.getPage(), query.getLimit());
         return (Page<Article>) articleDao.find(query);
     }
 

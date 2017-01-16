@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Page<User> findByPage(UserQuery query) {
-        PageHelper.startPage(1, 10);
+        PageHelper.startPage(query.getPage(), query.getLimit());
         return (Page<User>) userDao.find(query);
     }
 
@@ -49,6 +49,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public int delete(String id) {
         return userDao.delete(id);
+    }
+
+    @Override
+    public List<User> findArticleTop12() {
+        UserQuery query = new UserQuery();
+        PageHelper.startPage(1, 12);
+        query.setOrderType("articleTop");
+        return userDao.find(query);
     }
 
 }

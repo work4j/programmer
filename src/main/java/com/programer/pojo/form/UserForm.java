@@ -10,7 +10,7 @@ public class UserForm {
     private String userName;
     private String password;
     private String email;
-    private Integer userType;
+    private Integer userType = 2;
     private String nickname;
     private String realName;
     private Date registerTime = new Date();

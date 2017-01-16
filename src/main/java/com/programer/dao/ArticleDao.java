@@ -17,4 +17,6 @@ public interface ArticleDao {
     List<Article> find(ArticleQuery query);
 
     Article getArticle(ArticleQuery query);
+
+    void updateSeeNum(String id);
 }

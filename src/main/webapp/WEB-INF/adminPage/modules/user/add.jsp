@@ -94,8 +94,6 @@
 	</div>
 	<!-- 当前页js代码 -->
 	<script type="text/javascript">
-	    var form = layui.form();
-	    var $ = layui.jquery;
 	     //自定义验证规则
 	     var rules = {
              userName : function(value) {

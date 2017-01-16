@@ -1,12 +1,14 @@
 package com.programer.controller.admin;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import com.programer.common.SystemHelper;
 import com.programer.pojo.form.UserForm;
 import com.programer.pojo.query.UserQuery;
 import com.programer.service.UserService;
@@ -48,7 +50,9 @@ public class AdminUserController {
     @RequestMapping(value = "/delete_{id}", method = RequestMethod.GET)
     public String delete(@PathVariable("id") String id) {
         userService.delete(id);
-        return "redirect:showUserList";
+        HttpServletRequest request = SystemHelper.getRequest();
+        String url = request.getHeader("Referer");
+        return "redirect:" + url;
     }
 
     @RequestMapping(value = "/checkUserName", method = RequestMethod.POST)

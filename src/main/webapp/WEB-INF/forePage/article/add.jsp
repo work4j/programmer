@@ -4,19 +4,19 @@
 <head>
 <title>程序员社区</title>
 <!-- 头部 -->
-<%@ include file="../common/head_fore.jsp"%>
+<%@ include file="/WEB-INF/forePage/common/head_fore.jsp"%>
 </head>
 <body>
 	<!-- 导航栏 -->
-	<jsp:include page="../common/nav_fore.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/forePage/common/nav_fore.jsp"></jsp:include>
 	<div class="main layui-clear">
-		<h2 class="page-title">发表问题</h2>
+		<h2 class="page-title">发布文章</h2>
 		<div class="layui-form layui-form-pane">
 			<form action="add" method="post">
 				<div class="layui-form-item">
 					<label for="L_title" class="layui-form-label">标题</label>
 					<div class="layui-input-block">
-						<input type="text" id="L_title" name="title" required="" lay-verify="required" autocomplete="off" class="layui-input">
+						<input type="text" id="L_title" name="title" required="" lay-verify="title" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item layui-form-text">
@@ -25,9 +25,9 @@
 							<span type="face" title="插入表情"><i class="iconfont icon-biaoqing"></i>表情</span><span type="picture" title="插入图片：img[src]"><i class="iconfont icon-tupian"></i>图片</span><span type="href" title="超链接格式：a(href)[text]"><i class="iconfont icon-lianjie"></i>链接</span><span type="code" title="插入代码"><i
 								class="iconfont icon-daima"></i>代码</span><span type="yulan" title="预览"><i class="iconfont icon-yulan"></i>预览</span>
 						</div>
-						<textarea id="L_content" name="content" required="" lay-verify="required" placeholder="请输入内容" class="layui-textarea fly-editor" style="height: 260px;"></textarea>
+						<textarea id="L_content" name="content" required="" lay-verify="content" placeholder="请输入内容" class="layui-textarea fly-editor" style="height: 260px;"></textarea>
 					</div>
-					<label for="L_content" class="layui-form-label" style="top: -2px;">描述</label>
+					<label for="L_content" class="layui-form-label" style="top: -2px;">内容</label>
 				</div>
 				<!-- <div class="layui-form-item">
 					<div class="layui-inline">
@@ -102,12 +102,28 @@
 		</div>
 	</div>
 	<!-- 导航栏 -->
-	<jsp:include page="../common/footer_fore.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/forePage/common/footer_fore.jsp"></jsp:include>
 	<!-- 公共js -->
-	<jsp:include page="../common/import_js_fore.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/forePage/common/import_js_fore.jsp"></jsp:include>
 	<!-- 当前页面js -->
 	<script>
-        
+	    //自定义验证规则
+	    var rules = {
+	        title : function(value) {
+	            if (value.length < 2 || value.length > 30) {
+	                return '标题在2~30个字符之间';
+	            }
+	        },
+	        content : function(value) {
+	            if (value.length < 2 || value.length > 2000) {
+	                return '内容在2~2000个字符之间';
+	            }
+	        }
+	    };
+	    form.verify(rules);
+	    //监听提交
+	     form.on('submit(submit1)', function(data) {
+	    });
     </script>
 	<ul class="fly-rbar">
 		<li id="F_topbar" class="iconfont icon-top" method="top"></li>

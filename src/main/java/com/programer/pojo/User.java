@@ -14,4 +14,5 @@ public class User {
     private String realName;
     private Date registerTime;
     private Integer editable;
+    private Integer articleNum;
 }

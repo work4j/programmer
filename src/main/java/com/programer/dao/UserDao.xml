@@ -9,6 +9,7 @@
 		<result column="nickname" property="nickname" jdbcType="VARCHAR" />
 		<result column="user_type" property="userType" jdbcType="INTEGER" />
 		<result column="editable" property="editable" jdbcType="INTEGER" />
+		<result column="articleNum" property="articleNum" jdbcType="INTEGER" />
 		<result column="real_name" property="realName" jdbcType="VARCHAR" />
 		<result column="register_time" property="registerTime" jdbcType="DATE" />
 	</resultMap>
@@ -23,35 +24,39 @@
 	</select>
 	<select id="find" resultMap="BaseResultMap" parameterType="com.programer.pojo.query.UserQuery">
 		select
-		<include refid="Base_Column_List" />
-		from user_t
+		<include refid="Base_Column_List" />,(select count(1) from article_t art where art.user_id = u.id) as articleNum
+		from user_t u
         <where>
             <if test="id != null and id != ''">
-                AND id = #{id}
+                AND u.id = #{id}
             </if>
             <if test="userName != null and userName != ''">
-                AND user_name = #{userName}
+                AND u.user_name = #{userName}
             </if>
             <if test="password != null and password != ''">
-                AND password = #{password}
+                AND u.password = #{password}
             </if>
             <if test="email != null and email != ''">
-                AND email = #{email}
+                AND u.email = #{email}
             </if>
             <if test="userType != null and userType != ''">
-                AND user_type = #{userType}
+                AND u.user_type = #{userType}
             </if>
             <if test="nickname != null and nickname != ''">
-                AND nickname = #{nickname}
+                AND u.nickname = #{nickname}
             </if>
             <if test="realName != null and realName != ''">
-                AND real_name = #{realName}
+                AND u.real_name = #{realName}
             </if>
             <if test="simpleQueryParam != null and simpleQueryParam != ''">
-                AND real_name LIKE CONCAT('%',#{simpleQueryParam},'%')
+                AND u.real_name LIKE CONCAT('%',#{simpleQueryParam},'%')
             </if>
         </where>
-        ORDER BY user_type, register_time DESC
+        ORDER BY 
+        <if test="orderType != null and orderType == 'articleTop'">
+            articleNum DESC,
+        </if>
+        u.user_type, u.register_time DESC
 	</select>
 	<select id="getUserByUsernameAndPassword" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select

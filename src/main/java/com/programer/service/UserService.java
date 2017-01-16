@@ -33,4 +33,6 @@ public interface UserService {
     public Page<User> findByPage(UserQuery query);
 
     List<User> findAll(UserQuery query);
+
+    List<User> findArticleTop12();
 }

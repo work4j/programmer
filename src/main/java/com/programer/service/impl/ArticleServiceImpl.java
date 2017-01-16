@@ -44,4 +44,15 @@ public class ArticleServiceImpl implements ArticleService {
         return articleDao.delete(id);
     }
 
+    @Override
+    public void updateSeeNum(String id) {
+        articleDao.updateSeeNum(id);
+    }
+
+    @Override
+    public List<Article> findTop(ArticleQuery query) {
+        PageHelper.startPage(query.getPage(), query.getLimit());
+        return articleDao.find(query);
+    }
+
 }

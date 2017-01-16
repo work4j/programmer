@@ -21,6 +21,11 @@ public interface ArticleService {
      * 通过id删除一个Article
      */
     public int delete(String id);
+    
+    /**
+     * 通过id给Article增加一个查看数
+     */
+    public void updateSeeNum(String id);
 
     /**
      * 分页查询Article
@@ -28,4 +33,6 @@ public interface ArticleService {
     public Page<Article> findByPage(ArticleQuery query);
 
     List<Article> findAll(ArticleQuery query);
+
+    List<Article> findTop(ArticleQuery query);
 }

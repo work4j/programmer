@@ -38,7 +38,7 @@
                 AND pre.content LIKE CONCAT('%',#{simpleQueryParam},'%')
             </if>
         </where>
-        ORDER BY reply_time DESC
+        ORDER BY reply_time
 	</select>
 	<delete id="delete" parameterType="java.lang.String">
 		delete from reply_t

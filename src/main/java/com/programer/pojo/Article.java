@@ -11,4 +11,6 @@ public class Article {
     private String userId;
     private String nickname;
     private Date releaseTime;
+    private Integer replyNum;
+    private Integer seeNum;
 }

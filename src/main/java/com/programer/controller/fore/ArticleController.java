@@ -26,11 +26,17 @@ public class ArticleController {
     private ArticleService articleService;
     @Resource
     private ReplyService replyService;
+    @Resource
+    private UserService userService;
 
     @RequestMapping(value = "/articleList", method = RequestMethod.GET)
     public ModelAndView testPage(ArticleQuery query) {
         ModelAndView mav = new ModelAndView("article/list");
         mav.addObject("result", articleService.findByPage(query));
+        mav.addObject("top12", userService.findArticleTop12());
+        query.setOrderType("hot");
+        query.setLimit(15);
+        mav.addObject("top15", articleService.findTop(query));
         return mav;
     }
 
@@ -55,6 +61,12 @@ public class ArticleController {
         mav.addObject("result", articleService.getArticleById(id));
         query.setArticleId(id);
         mav.addObject("replys", replyService.findByPage(query));
+        articleService.updateSeeNum(id);
+        ArticleQuery artQuery = new ArticleQuery();
+        artQuery.setLimit(15);
+        mav.addObject("new15", articleService.findTop(artQuery));
+        artQuery.setOrderType("hot");
+        mav.addObject("top15", articleService.findTop(artQuery));
         return mav;
     }
 

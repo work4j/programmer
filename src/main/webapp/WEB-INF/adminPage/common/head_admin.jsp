@@ -1,4 +1,10 @@
 <!--/******* head *******/-->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -15,8 +21,3 @@
 <link rel="stylesheet" href="/programer/resources/others/layui/global.css" media="all">
 <link id="layuicss-skinlayercss" rel="stylesheet" href="/programer/resources/others/layui/css/modules/layer/default/layer.css" media="all">
 <link id="layuicss-skincodecss" rel="stylesheet" href="/programer/resources/others/layui/css/modules/code.css" media="all">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>

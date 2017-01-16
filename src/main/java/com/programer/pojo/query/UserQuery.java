@@ -17,4 +17,5 @@ public class UserQuery {
     private Integer page = 1;
     private Integer limit = 10;
     private String simpleQueryParam;
+    private String orderType;
 }

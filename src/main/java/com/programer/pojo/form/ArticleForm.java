@@ -11,4 +11,5 @@ public class ArticleForm {
     private String content;
     private String userId;
     private Date releaseTime = new Date();
+    private Integer seeNum = 0;
 }

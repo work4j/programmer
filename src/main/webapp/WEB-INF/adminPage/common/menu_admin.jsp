@@ -22,10 +22,10 @@
 						<a href="javascript:void(0);">暂无</a>
 					</dd>
 				</dl></li>
-			<li class="layui-nav-item layui-nav-itemed"><a class="javascript:;" href="javascript:;">暂无<span class="layui-nav-more"></span></a>
+			<li class="layui-nav-item layui-nav-itemed"><a class="javascript:;" href="javascript:;">文章管理<span class="layui-nav-more"></span></a>
 				<dl class="layui-nav-child">
-					<dd class="${param.root=='index4'?'layui-this':''}">
-						<a href="javascript:void(0);"> <i class="layui-icon" style="top: 3px;"></i><cite>暂无</cite>
+					<dd class="${param.root=='article'?'layui-this':''}">
+						<a href="<%=basePath%>admin/article/showArticleList"> <i class="layui-icon" style="top: 3px;"></i><cite>文章信息</cite>
 						</a>
 					</dd>
 					<dd class="${param.root=='index5'?'layui-this':''}">

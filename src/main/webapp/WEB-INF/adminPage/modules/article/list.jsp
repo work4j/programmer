@@ -19,21 +19,16 @@
 			<div class="layui-main">
 				<!--/***** 面包屑 *****/-->
 				<div class="layui-elem-quote" style="margin-top: 10px;">
-					<span class="layui-breadcrumb"> <a><cite>用户管理</cite></a> <a><cite>列表</cite></a>
+					<span class="layui-breadcrumb"> <a><cite>文章管理</cite></a> <a><cite>列表</cite></a>
 					</span>
 				</div>
 				<blockquote class="layui-elem-quote layui-quote-nm" style="color: #FF5722">
-					<i class="layui-icon">&#xe60b;</i> 程序员社区用户列表。
+					<i class="layui-icon">&#xe60b;</i> 程序员社区文章列表。
 				</blockquote>
 				<!--/*******操作*******/-->
-				<form action="showUserList" method="get">
+				<form action="showArticleList" method="get">
 					<div class="layui-form-item">
-						<blockquote class="layui-elem-quote layui-quote-nm">
-							<div class="layui-inline">
-								<div class="layui-input-inline">
-									<a href="add" class="layui-btn"><i class="layui-icon">&#xe61f;</i> 新增用户</a>
-								</div>
-							</div>
+						<blockquote class="layui-elem-quote layui-quote-nm" style="height: 43px">
 							<div class="layui-inline" style="float: right;">
 								<div class="layui-input-inline" style="width: 200px;">
 									<input type="search" id="simpleQueryParam" name="simpleQueryParam" placeholder="关键字" autocomplete="off" class="layui-input">
@@ -68,7 +63,7 @@
 									<td style="text-align: center;">${items.count }</td>
 									<td style="text-align: center;">${item.title }</td>
 									<td style="text-align: center;">${item.nickname }</td>
-									<td style="text-align: center;">${item.releaseTime }</td>
+									<td style="text-align: center;"><fmt:formatDate value="${item.releaseTime }" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 									<td style="text-align: center;"><a class="layui-btn layui-btn-small layui-btn-normal" href="delete_${item.id}"> <i class="layui-icon">&#xe640;</i>
 									</a></td>
 								</tr>

@@ -17,6 +17,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="format-detection" content="telephone=no">
 <link rel="stylesheet" href="<%=basePath %>resources/others/layui/css/layui.css" media="all">
-<link rel="stylesheet" href="<%=basePath %>resources/others/layui/css/global.css" media="all">
 <link rel="stylesheet" href="<%=basePath %>resources/others/layui/css/font.css" media="all">
+<link rel="stylesheet" href="<%=basePath %>resources/others/layui/css/global.css" media="all">
 <link id="layuicss-skinlayercss" rel="stylesheet" href="<%=basePath %>resources/others/layui/css/modules/layer/default/layer.css" media="all">

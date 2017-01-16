@@ -32,11 +32,11 @@
 				</c:if>
 				<div class="layui-form-item">
 					<button class="layui-btn" lay-filter="*" lay-submit="">立即登录</button>
-					<span style="padding-left: 20px;"> <a onclick="layer.alert('正在开发中')">忘记密码？</a>
+					<span style="padding-left: 20px;"> <a onclick="layer.msg('正在开发中')">忘记密码？</a>
 					</span>
 				</div>
 				<div class="layui-form-item fly-form-app">
-					<span>或者使用社交账号登入</span> <a onclick="layer.alert('正在开发中')" class="iconfont icon-qq" title="QQ登入"></a> <a onclick="layer.alert('正在开发中')" class="iconfont icon-weibo" title="微博登入"></a>
+					<span>或者使用社交账号登入</span> <a onclick="layer.msg('正在开发中')" class="iconfont icon-qq" title="QQ登入"></a> <a onclick="layer.alert('正在开发中')" class="iconfont icon-weibo" title="微博登入"></a>
 				</div>
 			</form>
 		</div>

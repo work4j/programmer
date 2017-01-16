@@ -43,7 +43,7 @@
 					<button class="layui-btn" lay-filter="*" lay-submit="">立即注册</button>
 				</div>
 				<div class="layui-form-item fly-form-app">
-					<span>或者直接使用社交账号快捷注册</span> <a href="http://fly.layui.com:8098/app/qq" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-qq" title="QQ登入"></a> <a href="http://fly.layui.com:8098/app/weibo/" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})"
+					<span>或者直接使用社交账号快捷注册</span> <a onclick="layer.msg('正在开发中')" class="iconfont icon-qq" title="QQ登入"></a> <a onclick="layer.msg('正在开发中')" 
 						class="iconfont icon-weibo" title="微博登入"></a>
 				</div>
 			</form>

@@ -23,6 +23,13 @@ public class ArticleServiceImpl implements ArticleService {
         this.articleDao.add(form);
     }
     
+    /**
+     * 修改一个Article
+     */
+    public void update(ArticleForm form) {
+        this.articleDao.update(form);
+    }
+    
     @Override
     public List<Article> findAll(ArticleQuery query) {
         return articleDao.find(query);

@@ -8,6 +8,7 @@ public class Article {
     private String id;
     private String title;
     private String content;
+    private String htmlContent;
     private String userId;
     private String nickname;
     private Date releaseTime;

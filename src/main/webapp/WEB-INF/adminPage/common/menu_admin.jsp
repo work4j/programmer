@@ -11,7 +11,7 @@
 				<dl class="layui-nav-child">
 					<dd class="${param.root=='index'?'layui-this':''}">
 						<a href="<%=basePath%>admin/index">调试预览</a>
-					</dd
+					</dd>
 				</dl></li>
 			<li class="layui-nav-item layui-nav-itemed"><a class="javascript:;" href="javascript:;">用户管理<span class="layui-nav-more"></span></a>
 				<dl class="layui-nav-child">

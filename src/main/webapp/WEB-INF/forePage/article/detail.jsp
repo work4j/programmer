@@ -24,10 +24,14 @@
 					</cite>
 					</a>
 					<div class="detail-hits" id="LAY_jieAdmin" data-id="6711">
-						<span style="color: #FF7200">悬赏：5飞吻</span> <span class="layui-btn layui-btn-mini jie-admin " type="collect" data-type="add" onclick="layer.msg('功能开发中')">收藏</span>
+						<span style="color: #FF7200">悬赏：5飞吻</span> 
+						<span class="layui-btn layui-btn-mini jie-admin " type="collect" data-type="add" onclick="layer.msg('功能开发中')">收藏</span>
+						<c:if test="${result.userId == sessionScope.currentUser.id}">
+							<a href="edit_${result.id}" class="layui-btn layui-btn-mini jie-admin " type="collect" data-type="add" >修改</a>
+						</c:if>
 					</div>
 				</div>
-				<div class="detail-body photos" style="margin-bottom: 20px;">${result.content }</div>
+				<div class="detail-body photos" style="margin-bottom: 20px;">${result.htmlContent }</div>
 				<a name="comment"></a>
 				<h2 class="page-title">
 					评论<span>（<em id="replyCount">${replys.getTotal() }</em>）

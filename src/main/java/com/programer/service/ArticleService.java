@@ -11,6 +11,12 @@ public interface ArticleService {
      * 新增一个Article
      */
     public void add(ArticleForm form);
+    
+    /**
+     * 修改一个Article
+     */
+    public void update(ArticleForm form);
+
 
     /**
      * 通过id得到一个Article

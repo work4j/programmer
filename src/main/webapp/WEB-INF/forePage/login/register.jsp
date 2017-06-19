@@ -55,7 +55,7 @@
 	<jsp:include page="/WEB-INF/forePage/common/import_js_fore.jsp"></jsp:include>
 	<!-- 当前页面js -->
 	<script>
-	    var t = /^[0-9a-zA-Z]*$/g;
+	    var t = /^[0-9a-zA-Z]*$/;
 	    //自定义验证规则
 	    var rules = {
 	        userName : function(value) {

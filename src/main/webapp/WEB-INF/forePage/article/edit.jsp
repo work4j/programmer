@@ -10,14 +10,15 @@
 	<!-- 导航栏 -->
 	<jsp:include page="/WEB-INF/forePage/common/nav_fore.jsp"></jsp:include>
 	<div class="main layui-clear">
-		<h2 class="page-title">发布文章</h2>
+		<h2 class="page-title">修改文章</h2>
 		<div style="position: relative;">
 			<div class="layui-form layui-form-pane" style="width: 50%">
-				<form action="add" method="post" onsubmit="toHtml()">
+				<form action="edit" method="post" onsubmit="toHtml()">
+					<input value="${result.id}" type="hidden" name="id">
 					<div class="layui-form-item">
 						<label for="L_title" class="layui-form-label">标题</label>
 						<div class="layui-input-block">
-							<input type="text" id="L_title" name="title" required=""
+							<input value="${result.title}" type="text" id="L_title" name="title" required=""
 								lay-verify="title" autocomplete="off" class="layui-input">
 						</div>
 					</div>
@@ -34,13 +35,13 @@
 							</div>
 							<textarea name="content" oninput="change()" id="L_content" required=""
 								lay-verify="content" placeholder="请输入内容"
-								class="layui-textarea fly-editor" style="height: 260px;"></textarea>
-							<textarea hidden="hidden" id="L_content2" name="htmlContent"></textarea>
+								class="layui-textarea fly-editor" style="height: 260px;">${result.content}</textarea>
+							<textarea hidden="hidden" id="L_content2" name="htmlContent">${result.htmlContent}</textarea>
 						</div>
 						<label for="L_content" class="layui-form-label" style="top: -2px;">内容</label>
 					</div>
 					<div class="layui-form-item">
-						<button class="layui-btn" lay-filter="submit1" lay-submit="">立即发布</button>
+						<button class="layui-btn" lay-filter="submit1" lay-submit="">提交</button>
 					</div>
 				</form>
 			</div>
@@ -49,7 +50,7 @@
 				<div>
 					预览
 				</div>
-				<div class="detail" id="yulan"></div>
+				<div class="detail" id="yulan">${result.htmlContent}</div>
 			</div>
 		</div>
 		<!-- 导航栏 -->

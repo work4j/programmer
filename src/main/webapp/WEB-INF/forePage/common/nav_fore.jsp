@@ -14,9 +14,8 @@
 			<a class="logo" style="background: url(<%=basePath%>resources/others/layui/images/logo-1.png) no-repeat" href="javacript:void(0);" onclick="layer.msg('欢迎来到程序员社区')" title="Fly">Fly社区</a>
         </c:if>
 		<div class="nav">
-			<a href="<%=basePath%>fore/article/articleList"> <i class="iconfont icon-wenda"></i>问答
-			</a> <a href="<%=basePath%>fore/article/articleList"> <i class="iconfont icon-iconmingxinganli" style="top: 2px;"></i>案例
-			</a> <a href="<%=basePath%>fore/article/articleList"> <i class="iconfont icon-ui"></i>框架
+			<a href="<%=basePath%>fore/article/articleList"> <i class="iconfont icon-wenda"></i>社区
+			</a> <a href="<%=basePath%>fore/article/articleList"> <i class="iconfont icon-ui"></i>工具
 			</a>
 		</div>
 		<c:if test="${sessionScope.currentUser != null }">

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.programer.common.SystemHelper;
+import com.programer.pojo.Article;
 import com.programer.pojo.form.ArticleForm;
 import com.programer.pojo.form.ReplyForm;
 import com.programer.pojo.query.ArticleQuery;
@@ -43,7 +44,7 @@ public class ArticleController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addPage() {
         if (SystemHelper.getCurrentUser() == null) {
-            return "redirect:/fore/login";
+            return "redirect:articleList";
         }
         return "article/add";
     }
@@ -53,6 +54,24 @@ public class ArticleController {
         form.setUserId(SystemHelper.getCurrentUser().getId());
         articleService.add(form);
         return "redirect:articleList";
+    }
+    
+    @RequestMapping(value = "/edit_{id}", method = RequestMethod.GET)
+    public ModelAndView editPage(@PathVariable String id) {
+    	ModelAndView mav = new ModelAndView("article/edit");
+    	Article result = articleService.getArticleById(id);
+    	if (SystemHelper.getCurrentUser() == null || result == null || !SystemHelper.getCurrentUser().getId().equals(result.getUserId())) {
+    		mav.setViewName("article/list");
+    	}else{
+    		mav.addObject("result", result);
+    	}
+    	return mav;
+    }
+    
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public String edit(ArticleForm form) {
+    	articleService.update(form);
+    	return "redirect:detail_"+form.getId();
     }
 
     @RequestMapping("/detail_{id}")
